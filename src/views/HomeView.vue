@@ -65,11 +65,11 @@ const isLoading = ref(false)
 const todoList = ref([])
 
 const refreshData = async () => {
-  // isLoading.value = true
+  isLoading.value = true
   const { data } = await axios.get(`${API_URL}/api/todo_app/GetNote`)
 
   if (data.success) {
-    // isLoading.value = false
+    isLoading.value = false
     todoList.value = data.data
   } else {
     console.error(data.message)
